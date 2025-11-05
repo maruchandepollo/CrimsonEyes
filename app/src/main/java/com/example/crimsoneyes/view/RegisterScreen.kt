@@ -33,9 +33,16 @@ fun PantallaRegistro(
     onToggleTheme: () -> Unit,
     viewModel: RegisterViewModel
 ) {
+<<<<<<< HEAD
     var username by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+=======
+    var nombre by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var rut by remember { mutableStateOf("")}
+>>>>>>> 32cbb9d (Ready)
     var confirmPassword by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
     var confirmPasswordVisible by remember { mutableStateOf(false) }
@@ -142,9 +149,15 @@ fun PantallaRegistro(
 
             // Campo Usuario
             OutlinedTextField(
+<<<<<<< HEAD
                 value = username,
                 onValueChange = {
                     username = it
+=======
+                value = nombre,
+                onValueChange = {
+                    nombre = it
+>>>>>>> 32cbb9d (Ready)
                     localErrorMessage = ""
                     if (registerState is RegisterState.Error) {
                         viewModel.resetState()
@@ -160,6 +173,31 @@ fun PantallaRegistro(
                     unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
                 )
             )
+<<<<<<< HEAD
+=======
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Campo rut
+            OutlinedTextField(
+                value = rut,
+                onValueChange = {
+                    rut = it
+                    localErrorMessage = ""
+                    if (registerState is RegisterState.Error) {
+                        viewModel.resetState()
+                    }
+                },
+                label = { Text("Rut de Usuario") },
+                singleLine = true,
+                enabled = !isLoading,
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(16.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
+                )
+            )
+>>>>>>> 32cbb9d (Ready)
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -205,7 +243,11 @@ fun PantallaRegistro(
                     IconButton(onClick = { passwordVisible = !passwordVisible }) {
                         Icon(
                             painter = painterResource(
+<<<<<<< HEAD
                                 id = if (passwordVisible) R.drawable.sunglass else R.drawable.oscurin
+=======
+                                id = if (passwordVisible) R.drawable.hidden else R.drawable.eye
+>>>>>>> 32cbb9d (Ready)
                             ),
                             contentDescription = if (passwordVisible) "Ocultar" else "Mostrar",
                             modifier = Modifier.size(20.dp)
@@ -240,7 +282,11 @@ fun PantallaRegistro(
                     IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
                         Icon(
                             painter = painterResource(
+<<<<<<< HEAD
                                 id = if (confirmPasswordVisible) R.drawable.sunglass else R.drawable.oscurin
+=======
+                                id = if (confirmPasswordVisible) R.drawable.hidden else R.drawable.eye
+>>>>>>> 32cbb9d (Ready)
                             ),
                             contentDescription = if (confirmPasswordVisible) "Ocultar" else "Mostrar",
                             modifier = Modifier.size(20.dp)
@@ -278,13 +324,21 @@ fun PantallaRegistro(
                 }
             }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32cbb9d (Ready)
             Spacer(modifier = Modifier.height(24.dp))
 
             // Botón Registrarse
             Button(
                 onClick = {
                     when {
+<<<<<<< HEAD
                         username.isEmpty() || email.isEmpty() ||
+=======
+                        nombre.isEmpty() || email.isEmpty() ||
+>>>>>>> 32cbb9d (Ready)
                                 password.isEmpty() || confirmPassword.isEmpty() -> {
                             localErrorMessage = "Por favor completa todos los campos"
                         }
@@ -297,8 +351,16 @@ fun PantallaRegistro(
                         !email.contains("@") -> {
                             localErrorMessage = "Email inválido"
                         }
+<<<<<<< HEAD
                         else -> {
                             viewModel.register(username,  password)
+=======
+                        rut.isEmpty() -> {
+                            localErrorMessage = "Por favor ingrese su rut"
+                        }
+                        else -> {
+                            viewModel.register(email,email,password,rut)
+>>>>>>> 32cbb9d (Ready)
                         }
                     }
                 },

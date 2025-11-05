@@ -13,3 +13,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+<<<<<<< HEAD
+=======
+*.hprof
+*.log
+
+>>>>>>> 32cbb9d (Ready)

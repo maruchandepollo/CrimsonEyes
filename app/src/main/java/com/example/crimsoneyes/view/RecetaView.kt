@@ -1,7 +1,10 @@
 package com.example.crimsoneyes.view
 
 import androidx.compose.animation.*
+<<<<<<< HEAD
 import androidx.compose.animation.core.*
+=======
+>>>>>>> 32cbb9d (Ready)
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,14 +12,37 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+<<<<<<< HEAD
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
+=======
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material.icons.filled.RecentActors
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.outlined.BeachAccess
+import androidx.compose.material.icons.outlined.Biotech
+import androidx.compose.material.icons.outlined.Book
+import androidx.compose.material.icons.outlined.Delete
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
+import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.ShoppingCart
+>>>>>>> 32cbb9d (Ready)
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+<<<<<<< HEAD
+=======
+import androidx.compose.ui.graphics.graphicsLayer
+>>>>>>> 32cbb9d (Ready)
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -24,7 +50,10 @@ import androidx.compose.ui.unit.dp
 import com.example.crimsoneyes.R
 import com.example.crimsoneyes.controller.RecetaViewModel
 import com.example.crimsoneyes.model.Receta
+<<<<<<< HEAD
 import com.example.crimsoneyes.ui.view.components.ImageCarousel
+=======
+>>>>>>> 32cbb9d (Ready)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,6 +61,11 @@ fun HomeScreen(
     viewModel: RecetaViewModel,
     isDarkMode: Boolean,
     onToggleTheme: () -> Unit,
+<<<<<<< HEAD
+=======
+    onNavigateToProductos: () -> Unit,
+    onNavigateToProfile: () -> Unit,
+>>>>>>> 32cbb9d (Ready)
     onLogout: () -> Unit
 ) {
     val state by viewModel.state.collectAsState()
@@ -74,10 +108,41 @@ fun HomeScreen(
                         }
                     }
                 },
+<<<<<<< HEAD
 
 
                 actions = {
                     FilledTonalIconButton(
+=======
+                actions = {
+                    FilledTonalIconButton(
+                        onClick = onNavigateToProfile,
+                        modifier = Modifier.size(40.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.Person,
+                            contentDescription = "Mi Perfil",
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(4.dp))
+
+                    FilledTonalIconButton(
+                        onClick = onNavigateToProductos,
+                        modifier = Modifier.size(40.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.ShoppingCart,
+                            contentDescription = "Ver Productos",
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(4.dp))
+
+                    FilledTonalIconButton(
+>>>>>>> 32cbb9d (Ready)
                         onClick = onToggleTheme,
                         modifier = Modifier.size(40.dp)
                     ) {
@@ -87,6 +152,7 @@ fun HomeScreen(
                             modifier = Modifier.size(20.dp)
                         )
                     }
+<<<<<<< HEAD
                     // 🖼️ Carrusel en la parte superior del Login
                     ImageCarousel(
                         imageList = listOf(
@@ -96,6 +162,8 @@ fun HomeScreen(
                         )
                     )
 
+=======
+>>>>>>> 32cbb9d (Ready)
 
                     Spacer(modifier = Modifier.width(4.dp))
 
@@ -200,7 +268,14 @@ fun HomeScreen(
                         items = state.list,
                         key = { it.id ?: 0 }
                     ) { receta ->
+<<<<<<< HEAD
                         RecetaCard(receta = receta)
+=======
+                        RecetaCard(
+                            receta = receta,
+                            onDeleteClick = { viewModel.eliminarReceta(receta) }
+                        )
+>>>>>>> 32cbb9d (Ready)
                     }
                 }
 
@@ -243,7 +318,11 @@ private fun CreateRecetaCard(
                     color = MaterialTheme.colorScheme.primary
                 ) {
                     Icon(
+<<<<<<< HEAD
                         imageVector = Icons.Default.Add,
+=======
+                        imageVector = Icons.Default.RecentActors,
+>>>>>>> 32cbb9d (Ready)
                         contentDescription = null,
                         modifier = Modifier.padding(12.dp),
                         tint = MaterialTheme.colorScheme.onPrimary
@@ -271,7 +350,11 @@ private fun CreateRecetaCard(
                 label = { Text("Título") },
                 placeholder = { Text("Ej: Lentes para lectura") },
                 leadingIcon = {
+<<<<<<< HEAD
                     Icon(Icons.Outlined.Warning, contentDescription = null)
+=======
+                    Icon(Icons.Outlined.BeachAccess, contentDescription = null)
+>>>>>>> 32cbb9d (Ready)
                 },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(),
@@ -288,7 +371,11 @@ private fun CreateRecetaCard(
                 label = { Text("Descripción") },
                 placeholder = { Text("Describe los detalles...") },
                 leadingIcon = {
+<<<<<<< HEAD
                     Icon(Icons.Outlined.Face, contentDescription = null)
+=======
+                    Icon(Icons.Outlined.Book, contentDescription = null)
+>>>>>>> 32cbb9d (Ready)
                 },
                 minLines = 3,
                 maxLines = 5,
@@ -419,7 +506,11 @@ private fun StatsCard(recetasCount: Int) {
                 color = MaterialTheme.colorScheme.secondary.copy(alpha = 0.2f)
             ) {
                 Icon(
+<<<<<<< HEAD
                     imageVector = Icons.Outlined.Delete,
+=======
+                    imageVector = Icons.Outlined.Favorite,
+>>>>>>> 32cbb9d (Ready)
                     contentDescription = null,
                     modifier = Modifier.padding(14.dp),
                     tint = MaterialTheme.colorScheme.secondary
@@ -430,7 +521,11 @@ private fun StatsCard(recetasCount: Int) {
 }
 
 @Composable
+<<<<<<< HEAD
 private fun RecetaCard(receta: Receta) {
+=======
+private fun RecetaCard(receta: Receta, onDeleteClick: () -> Unit) {
+>>>>>>> 32cbb9d (Ready)
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
@@ -453,6 +548,10 @@ private fun RecetaCard(receta: Receta) {
                         overflow = TextOverflow.Ellipsis
                     )
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32cbb9d (Ready)
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
@@ -464,6 +563,7 @@ private fun RecetaCard(receta: Receta) {
                     )
                 }
 
+<<<<<<< HEAD
                 Surface(
                     modifier = Modifier.size(36.dp),
                     shape = CircleShape,
@@ -475,6 +575,10 @@ private fun RecetaCard(receta: Receta) {
                         modifier = Modifier.padding(8.dp),
                         tint = MaterialTheme.colorScheme.primary
                     )
+=======
+                IconButton(onClick = onDeleteClick) {
+                    Icon(Icons.Filled.Delete, contentDescription = "Eliminar")
+>>>>>>> 32cbb9d (Ready)
                 }
             }
 
@@ -514,7 +618,11 @@ private fun EmptyStateCard() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Icon(
+<<<<<<< HEAD
                 imageVector = Icons.Outlined.ShoppingCart,
+=======
+                imageVector = Icons.Outlined.Biotech,
+>>>>>>> 32cbb9d (Ready)
                 contentDescription = null,
                 modifier = Modifier.size(64.dp),
                 tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f)

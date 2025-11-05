@@ -3,6 +3,7 @@ package com.example.crimsoneyes
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+<<<<<<< HEAD
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -24,21 +25,37 @@ import com.example.crimsoneyes.ui.theme.CrimsonEyesTheme
 import com.example.crimsoneyes.view.HomeScreen
 import com.example.crimsoneyes.view.PantallaLogin
 import com.example.crimsoneyes.view.PantallaRegistro
+=======
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import com.example.crimsoneyes.navigation.AppNavigation
+import com.example.crimsoneyes.ui.theme.CrimsonEyesTheme
+>>>>>>> 32cbb9d (Ready)
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+<<<<<<< HEAD
 
         // Inicializar base de datos y repositorios
         val database = CrimsonDataBase.get(applicationContext)
         val usuarioRepository = UsuarioRepository(database)
         val recetaRepository = RecetaRepository(database)
+=======
+        enableEdgeToEdge()
+>>>>>>> 32cbb9d (Ready)
 
         setContent {
             val systemDark = isSystemInDarkTheme()
             var isDarkMode by remember { mutableStateOf(systemDark) }
 
             CrimsonEyesTheme(darkTheme = isDarkMode) {
+<<<<<<< HEAD
                 AppContent(
                     usuarioRepository = usuarioRepository,
                     recetaRepository = recetaRepository,
@@ -122,3 +139,18 @@ fun AppContent(
         }
     }
 }
+=======
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    AppNavigation(
+                        isDarkMode = isDarkMode,
+                        onToggleTheme = { isDarkMode = !isDarkMode }
+                    )
+                }
+            }
+        }
+    }
+}
+>>>>>>> 32cbb9d (Ready)

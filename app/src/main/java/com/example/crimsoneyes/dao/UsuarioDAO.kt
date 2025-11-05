@@ -7,7 +7,10 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.crimsoneyes.model.Usuario
+<<<<<<< HEAD
 import kotlinx.coroutines.flow.Flow
+=======
+>>>>>>> 32cbb9d (Ready)
 
 @Dao
 interface UsuarioDAO {
@@ -20,6 +23,11 @@ interface UsuarioDAO {
     @Delete
     suspend fun delete(usuario: Usuario)
 
+<<<<<<< HEAD
     @Query("SELECT * FROM usuarios WHERE username = :username")
     suspend fun findByUsername(username: String): Usuario?
+=======
+    @Query("SELECT * FROM usuarios WHERE nombre = :nombre")
+    suspend fun findByUsername(nombre: String): Usuario?
+>>>>>>> 32cbb9d (Ready)
 }

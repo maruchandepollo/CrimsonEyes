@@ -3,6 +3,10 @@ package com.example.crimsoneyes.controller
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.crimsoneyes.api.ApiService
+<<<<<<< HEAD
+=======
+import com.example.crimsoneyes.model.Producto
+>>>>>>> 32cbb9d (Ready)
 import com.example.crimsoneyes.model.Receta
 import com.example.crimsoneyes.network.RetrofitProvider
 import com.example.crimsoneyes.repository.RecetaRepository
@@ -27,7 +31,19 @@ data class RecetaUiState(
     //listado
     val list: List<Receta> = emptyList(),
     val isListLoading: Boolean = false,
+<<<<<<< HEAD
     val listError: String? = null
+=======
+    val listError: String? = null,
+    // Eliminación
+    val isDeleting: Boolean = false,
+    val deleteError: String? = null,
+
+    val productos: List<Producto> = emptyList(),
+    val isProductosLoading: Boolean = false,
+    val productosError: String? = null,
+    val selectedTab: Int = 0
+>>>>>>> 32cbb9d (Ready)
 )
 
 class RecetaViewModel(private val repository: RecetaRepository): ViewModel() {
@@ -122,4 +138,23 @@ class RecetaViewModel(private val repository: RecetaRepository): ViewModel() {
             }
         }
     }
+<<<<<<< HEAD
+=======
+    fun eliminarReceta(receta: Receta) {
+        viewModelScope.launch {
+            _state.update { it.copy(isDeleting = true, deleteError = null) }
+            try {
+                repository.delete(receta)
+                _state.update { it.copy(isDeleting = false) }
+            } catch (ex: Exception) {
+                _state.update {
+                    it.copy(
+                        isDeleting = false,
+                        deleteError = ex.message ?: "Error al eliminar la receta"
+                    )
+                }
+            }
+        }
+    }
+>>>>>>> 32cbb9d (Ready)
 }

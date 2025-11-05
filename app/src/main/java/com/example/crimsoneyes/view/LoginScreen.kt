@@ -19,10 +19,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.draw.shadow
+<<<<<<< HEAD
+=======
+import androidx.compose.ui.text.input.VisualTransformation
+>>>>>>> 32cbb9d (Ready)
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.crimsoneyes.R
 import com.example.crimsoneyes.controller.LoginState
 import com.example.crimsoneyes.controller.LoginViewModel
+<<<<<<< HEAD
 import com.example.crimsoneyes.ui.view.components.ImageCarousel
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -33,11 +38,17 @@ import androidx.compose.runtime.Composable
 
 
 
+=======
+>>>>>>> 32cbb9d (Ready)
 
 @Composable
 fun PantallaLogin(
     // Variables asignadas para confirmar que logeas correctamente
+<<<<<<< HEAD
     onLoginSucces: () -> Unit,
+=======
+    onLoginSuccess: () -> Unit,
+>>>>>>> 32cbb9d (Ready)
     // Darkmode
     isDarkMode: Boolean,
     onNavigateToRegister: () -> Unit,
@@ -46,8 +57,13 @@ fun PantallaLogin(
     // ViewModel inyectado (puedes pasarlo desde MainActivity o usar viewModel())
     viewModel: LoginViewModel = viewModel()
 ) {
+<<<<<<< HEAD
     // Variables de email y password
     var email by remember { mutableStateOf("") }
+=======
+    // Variables de nombre y password
+    var nombre by remember { mutableStateOf("") }
+>>>>>>> 32cbb9d (Ready)
     var pass by remember { mutableStateOf("") }
 
     // Observar el estado del login desde el ViewModel
@@ -55,13 +71,22 @@ fun PantallaLogin(
 
     // Variable para controlar el mensaje de error local (campos vacíos)
     var localErrorMessage by remember { mutableStateOf("") }
+<<<<<<< HEAD
+=======
+    var passwordVisible by remember { mutableStateOf(false) }
+    var confirmPasswordVisible by remember { mutableStateOf(false)}
+>>>>>>> 32cbb9d (Ready)
 
     // Manejar el éxito del login
     LaunchedEffect(loginState) {
         when (loginState) {
             is LoginState.Success -> {
                 // Usuario autenticado correctamente, navegar
+<<<<<<< HEAD
                 onLoginSucces()
+=======
+                onLoginSuccess()
+>>>>>>> 32cbb9d (Ready)
                 // Resetear el estado después de navegar
                 viewModel.resetState()
             }
@@ -106,7 +131,10 @@ fun PantallaLogin(
                 tint = MaterialTheme.colorScheme.primary
             )
         }
+<<<<<<< HEAD
         Spacer(modifier = Modifier.height(24.dp))
+=======
+>>>>>>> 32cbb9d (Ready)
 
         Column(
             modifier = Modifier
@@ -145,6 +173,10 @@ fun PantallaLogin(
                 text = "CrimsonEyes",
                 style = MaterialTheme.typography.headlineLarge,
                 fontWeight = FontWeight.Bold,
+<<<<<<< HEAD
+=======
+                fontSize = 50.sp,
+>>>>>>> 32cbb9d (Ready)
                 color = MaterialTheme.colorScheme.primary
             )
 
@@ -153,24 +185,40 @@ fun PantallaLogin(
             Text(
                 text = "Ve el mundo con otros ojos, ve con Crimson Eyes",
                 style = MaterialTheme.typography.bodyLarge,
+<<<<<<< HEAD
+=======
+                fontSize = 20.sp,
+>>>>>>> 32cbb9d (Ready)
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(48.dp))
 
+<<<<<<< HEAD
             // Campo para ingresar email
             OutlinedTextField(
                 value = email,
                 onValueChange = {
                     email = it
+=======
+            // Campo para ingresar nombre
+            OutlinedTextField(
+                value = nombre,
+                onValueChange = {
+                    nombre = it
+>>>>>>> 32cbb9d (Ready)
                     localErrorMessage = ""
                     // Resetear estado de error del ViewModel si existe
                     if (loginState is LoginState.Error) {
                         viewModel.resetState()
                     }
                 },
+<<<<<<< HEAD
                 label = { Text("Email o Usuario") },
+=======
+                label = { Text("Nombre de Usuario") },
+>>>>>>> 32cbb9d (Ready)
                 singleLine = true,
                 enabled = !isLoading, // Deshabilitar mientras carga
                 modifier = Modifier.fillMaxWidth(),
@@ -197,12 +245,31 @@ fun PantallaLogin(
                 singleLine = true,
                 enabled = !isLoading,
                 modifier = Modifier.fillMaxWidth(),
+<<<<<<< HEAD
                 visualTransformation = PasswordVisualTransformation(),
+=======
+                visualTransformation = if(passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+>>>>>>> 32cbb9d (Ready)
                 shape = RoundedCornerShape(16.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = MaterialTheme.colorScheme.primary,
                     unfocusedBorderColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
+<<<<<<< HEAD
                 )
+=======
+                ),
+                trailingIcon = {
+                    IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                    Icon(
+                        painter = painterResource(
+                            id = if (passwordVisible) R.drawable.hidden else R.drawable.eye
+                        ),
+                        contentDescription = if (passwordVisible) "Ocultar" else "Mostrar",
+                        modifier = Modifier.size(20.dp)
+                    )
+            }
+        },
+>>>>>>> 32cbb9d (Ready)
             )
 
             // Mostrar mensaje de error con animación
@@ -235,9 +302,15 @@ fun PantallaLogin(
             Button(
                 onClick = {
                     // Validación local de campos vacíos
+<<<<<<< HEAD
                     if (email.isNotEmpty() && pass.isNotEmpty()) {
                         // Llamar al ViewModel para hacer login
                         viewModel.login(email, pass)
+=======
+                    if (nombre.isNotEmpty() && pass.isNotEmpty()) {
+                        // Llamar al ViewModel para hacer login
+                        viewModel.login(nombre, pass)
+>>>>>>> 32cbb9d (Ready)
                     } else {
                         localErrorMessage = "Por favor completa todos los campos!"
                     }

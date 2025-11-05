@@ -20,6 +20,13 @@ class RecetaRepository(private val db: CrimsonDataBase) {
         return db.RecetaDao().insert(receta)
     }
 
+<<<<<<< HEAD
+=======
+    suspend fun delete(receta: Receta) {
+        db.RecetaDao().delete(receta)
+    }
+
+>>>>>>> 32cbb9d (Ready)
     suspend fun getAllRecetasList(): List<Receta> {
         return db.RecetaDao().getAllRecetas().first()
     }

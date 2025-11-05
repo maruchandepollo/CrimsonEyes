@@ -11,7 +11,11 @@ import com.example.crimsoneyes.model.Usuario
 
 
 @Database(entities = [Usuario::class, Receta::class],
+<<<<<<< HEAD
     version= 2 ,
+=======
+    version= 2,
+>>>>>>> 32cbb9d (Ready)
     exportSchema = false
 )
 abstract class CrimsonDataBase: RoomDatabase() {
